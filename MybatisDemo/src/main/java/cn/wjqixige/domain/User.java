@@ -1,74 +1,64 @@
 package cn.wjqixige.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable {
-    private int uid;
-    private String name;
-    private String password;
-    private String email;
-    private String proxy;
-    private String create_time;
+    private int id;
+    private String userName;
+    private Date birthday;
+    private String sex;
+    private String address;
 
 
-    public int getUid() {
-        return uid;
+    public int getId() {
+        return id;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSex() {
+        return sex;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getProxy() {
-        return proxy;
+    public String getAddress() {
+        return address;
     }
 
-    public void setProxy(String proxy) {
-        this.proxy = proxy;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
-    public String getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(String create_time) {
-        this.create_time = create_time;
-    }
-
 
     @Override
     public String toString() {
         return "User{" +
-                "uid=" + uid +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", proxy='" + proxy + '\'' +
-                ", create_time='" + create_time + '\'' +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", birthday=" + birthday +
+                ", sex='" + sex + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }
