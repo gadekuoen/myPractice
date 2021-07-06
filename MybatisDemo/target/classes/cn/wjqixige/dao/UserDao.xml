@@ -18,7 +18,38 @@
         <selectKey keyColumn="id" keyProperty="id" resultType="int">
             select last_insert_id();
         </selectKey>
-        insert into user(userName,birthday,sex,address) values(#{userName},#{birthday},#{sex},#{address})
+        insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
     </insert>
+
+    <!-- 更新用户 -->
+    <update id="updateUser" parameterType="cn.wjqixige.domain.User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
+
+    <!-- 根据用户名模糊查询1 -->
+    <select id="findByName1" resultType="cn.wjqixige.domain.User" parameterType="String">
+        select * from user where username like #{username}
+    </select>
+
+    <!-- 根据用户名模糊查询2 -->
+    <select id="findByName2" resultType="cn.wjqixige.domain.User" parameterType="String">
+        select * from user where username like '%${value}%'
+    </select>
+
+
+    <!-- 查询总记录条数 -->
+    <select id="findTotal" resultType="int">
+        select count(*) from user
+    </select>
+
+    <!-- 根据用户名称模糊查询，参数变成一个 QueryVo 对象了 -->
+    <select id="findByVo" resultType="cn.wjqixige.domain.User" parameterType="cn.wjqixige.domain.QueryVo">
+        select * from user where username like #{user.username}
+    </select>
 
 </mapper>
