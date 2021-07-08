@@ -20,35 +20,25 @@ package directOffer;
  */
 public class FebrahRaisesTheSequence {
 
-//    public static int fib(int n) {
-//        if (n == 0){
-//            return 0;
-//        } else if (n == 1){
-//            return 1;
-//        }
-//
-//        return fib(n - 1 ) + fib( n - 2 );
-//    }
-
     public static int fib(int n){
         int a = 0;
         int b = 1;
-        int res = 0;
-        if (n == 0) {
-            return a;
-        } else if (n == 1) {
-            return b;
+        if (n == 0 || n == 1) {
+            return n;
         }
 
-        res = a + b;
+        for (int i = 1; i <= n; i++) {
+            a = a + b;
+            b = a - b;
+            a%=1000000007;
+        }
 
-
-        return n-1;
+        return a;
     }
 
-    public static void main(String[] args) {
-        int fib = fib(5);
-        System.out.println(fib);
-    }
+//    public static void main(String[] args) {
+//        int fib = fib(6);
+//        System.out.println(fib);
+//    }
 
 }
