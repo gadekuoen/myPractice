@@ -1,18 +1,18 @@
-package cn.wjqixige.Arrays;
+package cn.wjqixige.StacksAndQueues;
 
 /**
  * 动态数组
  */
-public class DynamicArray<E> {
+public class Array<E> {
     private E[] data;
     private int size;
 
-    public DynamicArray(){
+    public Array(){
         this(10);
     }
 
     //构造函数，传入数组的容量capacity构造Array
-    public DynamicArray(int capacity){
+    public Array(int capacity){
         data = (E[]) new Object[capacity];
         size = 0;
     }
