@@ -1,15 +1,17 @@
 package dataStructure.stack_and_queue;
 
 public class MyCircularQueue {
-    private Integer[] data;
+    private int[] data;
     private int head;
     private int tail;
+    private int size;
 
     //构造器，设置队列长度为 k
     public MyCircularQueue(int k) {
-        data = new Integer[k];
-        head = 0;
-        tail = 0;
+        data = new int[k];
+        head = -1;
+        tail = -1;
+        size = k;
     }
 
     //向循环队列插入一个元素。如果成功插入则返回真
@@ -48,7 +50,7 @@ public class MyCircularQueue {
 
     //检查循环队列是否为空
     public boolean isEmpty() {
-        return data == null || data.length == 0;
+        return head == -1;
     }
 
     //检查循环队列是否已满

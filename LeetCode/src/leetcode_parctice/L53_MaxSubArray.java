@@ -24,7 +24,7 @@ package leetcode_parctice;
  *      1 <= nums.length <= 3 * 104
  *      -105 <= nums[i] <= 105
  */
-public class L53MaxSubArray {
+public class L53_MaxSubArray {
 
     /**
      * 方法一：在线处理

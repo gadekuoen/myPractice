@@ -39,7 +39,7 @@ public class InputStreamDemo {
         byte[] bytes = new byte[1024];
 //        int read = fis.read(bytes);
 //        System.out.println(read);
-//        System.out.println(Arrays.toString(bytes));
+//        System.out.println(cn.wjqixige.Arrays.toString(bytes));
 //        System.out.println(new String(bytes));
         while((len = fis.read(bytes)) != -1){
             System.out.print(new String(bytes,0,len));

@@ -1,9 +1,9 @@
 package cn.wjqixige.IO;
 
+import cn.wjqixige.IO.domain.Employee;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 /**
  * java.io.ObjectOutputStream类，将Java对象的原始数据类型写出到文件,实现对象的持久存储。
@@ -20,28 +20,21 @@ public class ObjectOutputStreamDemo {
 
     public static void main(String[] args) {
         Employee emp = new Employee();
-        emp.name = "zhangsan";
-        emp.address = "beiqinglu";
-        emp.age = 20;
+        emp.setName("zhangsan");
+        emp.setAddress("beiqinglu");
+        emp.setAge(20);
         try {
             // 创建序列化流对象
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("employee.txt"));
+            FileOutputStream outputStream = new FileOutputStream("javaSEDemo\\employee.txt");
+            ObjectOutputStream out = new ObjectOutputStream(outputStream);
             // 写出对象
             out.writeObject(emp);
             // 释放资源
             out.close();
+            outputStream.close();
             System.out.println("Serialized data is saved"); // 姓名，地址被序列化，年龄没有被序列化。
         } catch(IOException e) {
             e.printStackTrace();
         }
-    }
-}
-
-class Employee implements Serializable {
-    String name;
-    String address;
-    transient int age; // transient瞬态修饰成员,不会被序列化
-    public void addressCheck() {
-        System.out.println("Address  check : " + name + " -- " + address);
     }
 }

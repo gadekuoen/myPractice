@@ -43,7 +43,7 @@ public class OutputStreamDemo {
 //        fos.write(bytes, 1,3);
 
 //        byte[] bytes1 = "你好".getBytes();
-//        System.out.println(Arrays.toString(bytes1));
+//        System.out.println(cn.wjqixige.Arrays.toString(bytes1));
 //        fos.write(bytes1);
 
         /**

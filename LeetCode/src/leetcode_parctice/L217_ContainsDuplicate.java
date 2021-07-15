@@ -20,7 +20,7 @@ import java.util.Set;
  *      输入: [1,1,1,3,3,4,3,2,4,2]
  *      输出: true
  */
-public class L217ContainsDuplicate {
+public class L217_ContainsDuplicate {
 
     /** 方法一：比较数组长度 */
     public static boolean containsDuplicate(int[] nums) {

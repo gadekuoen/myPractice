@@ -24,7 +24,7 @@ import java.util.HashMap;
  *      -109 <= target <= 109
  *      只会存在一个有效答案
  */
-public class L1TwoSum {
+public class L1_TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {
 
