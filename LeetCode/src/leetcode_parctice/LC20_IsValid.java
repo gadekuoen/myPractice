@@ -25,7 +25,7 @@ import java.util.Stack;
  *      输入：s = "{[]}"
  *      输出：true
  */
-public class L20_IsValid {
+public class LC20_IsValid {
 
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();

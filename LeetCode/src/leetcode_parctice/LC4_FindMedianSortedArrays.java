@@ -35,7 +35,7 @@ import java.util.Arrays;
  *      1 <= m + n <= 2000
  *      -106 <= nums1[i], nums2[i] <= 106
  */
-public class L4_FindMedianSortedArrays {
+public class LC4_FindMedianSortedArrays {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
@@ -59,11 +59,11 @@ public class L4_FindMedianSortedArrays {
         return median;
     }
 
-    public static void main(String[] args) {
-        L4_FindMedianSortedArrays obj = new L4_FindMedianSortedArrays();
-        int[] num1 = {1,2,3,5,6};
-        int[] num2 = {4,5,6,7};
-        double arr = obj.findMedianSortedArrays(num1, num2);
-        System.out.println(arr);
-    }
+//    public static void main(String[] args) {
+//        LC4_FindMedianSortedArrays obj = new LC4_FindMedianSortedArrays();
+//        int[] num1 = {1,2,3,5,6};
+//        int[] num2 = {4,5,6,7};
+//        double arr = obj.findMedianSortedArrays(num1, num2);
+//        System.out.println(arr);
+//    }
 }

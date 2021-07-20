@@ -45,7 +45,7 @@ public class LoopQueue<E> implements Queue<E> {
     @Override
     public E dequeue() {
         if (isEmpty())
-            throw new IllegalArgumentException("Cannot dequeue fron an empty queue.");
+            throw new IllegalArgumentException("Cannot dequeue front an empty queue.");
 
         E ret = data[front];
         data[front] = null;
