@@ -12,5 +12,14 @@ public class Main {
 
         linkedList2.add(2,666);
         System.out.println(linkedList2);
+
+        linkedList2.remove(2);
+        System.out.println(linkedList2);
+
+        linkedList2.removeFirst();
+        System.out.println(linkedList2);
+
+        linkedList2.removeLast();
+        System.out.println(linkedList2);
     }
 }

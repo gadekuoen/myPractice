@@ -2,9 +2,9 @@ package cn.wjqixige.StacksAndQueues.Queues;
 
 public interface Queue<E> {
 
+    int getSize();
+    boolean isEmpty();
     void enqueue(E e);
     E dequeue();
     E getFront();
-    int getSize();
-    boolean isEmpty();
 }
