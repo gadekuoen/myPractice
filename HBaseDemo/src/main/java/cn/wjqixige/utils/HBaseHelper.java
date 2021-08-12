@@ -1,4 +1,4 @@
-package util;
+package cn.wjqixige.utils;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -118,9 +118,7 @@ public class HBaseHelper implements Closeable {
     createTable(TableName.valueOf(table), 1, splitKeys, colfams);
   }
 
-  public void createTable(TableName table, int maxVersions, byte[][] splitKeys,
-    String... colfams)
-  throws IOException {
+  public void createTable(TableName table, int maxVersions, byte[][] splitKeys, String... colfams) throws IOException {
     HTableDescriptor desc = new HTableDescriptor(table);
     for (String cf : colfams) {
       HColumnDescriptor coldef = new HColumnDescriptor(cf);
@@ -215,11 +213,9 @@ public class HBaseHelper implements Closeable {
             Integer.toString(rnd.nextInt(numCols)) :
             padNum(row, pad) + "." + padNum(col, pad));
           if (setTimestamp) {
-            put.addColumn(Bytes.toBytes(cf), Bytes.toBytes(colName), col,
-              Bytes.toBytes(val));
+            put.addColumn(Bytes.toBytes(cf), Bytes.toBytes(colName), col, Bytes.toBytes(val));
           } else {
-            put.addColumn(Bytes.toBytes(cf), Bytes.toBytes(colName),
-              Bytes.toBytes(val));
+            put.addColumn(Bytes.toBytes(cf), Bytes.toBytes(colName), Bytes.toBytes(val));
           }
         }
         tbl.put(put);
