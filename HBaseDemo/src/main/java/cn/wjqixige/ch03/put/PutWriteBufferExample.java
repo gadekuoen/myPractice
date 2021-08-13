@@ -1,6 +1,5 @@
 package cn.wjqixige.ch03.put;
 
-import cn.wjqixige.utils.MyUtils;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -26,13 +25,16 @@ public class PutWriteBufferExample {
         BufferedMutator mutator = connection.getBufferedMutator(TableName.valueOf(tableName));
 
         //插入一条测试数据数据
-        Put put1 = MyUtils.insertData("row1", "colfam1", "qual1", "val1");
+        Put put1 = new Put(Bytes.toBytes("row1"));
+        put1.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val1"));
         mutator.mutate(put1); // Store some rows with columns into HBase.
 
-        Put put2 = MyUtils.insertData("row2", "colfam1", "qual1", "val2");
+        Put put2 = new Put(Bytes.toBytes("row1"));
+        put2.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val2"));
         mutator.mutate(put2);
 
-        Put put3 = MyUtils.insertData("row2", "colfam1", "qual2", "val3");
+        Put put3 = new Put(Bytes.toBytes("row2"));
+        put3.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual2"), Bytes.toBytes("val3"));
         mutator.mutate(put3);
 
         //查看mutator刷新前后
@@ -55,13 +57,16 @@ public class PutWriteBufferExample {
 
         ArrayList<Mutation> mutations= new ArrayList<>();
 
-        Put put1 = MyUtils.insertData("row1", "colfam1", "qual1", "val1");
+        Put put1 = new Put(Bytes.toBytes("row1"));
+        put1.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val1"));
         mutations.add(put1);
 
-        Put put2 = MyUtils.insertData("row2", "colfam1", "qual1", "val2");
+        Put put2 = new Put(Bytes.toBytes("row2"));
+        put2.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val2"));
         mutations.add(put2);
 
-        Put put3 = MyUtils.insertData("row3", "colfam1", "qual2", "val3");
+        Put put3 = new Put(Bytes.toBytes("row3"));
+        put3.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual2"), Bytes.toBytes("val3"));
         mutations.add(put3);
 
         mutator.mutate(mutations);

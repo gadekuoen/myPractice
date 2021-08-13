@@ -1,8 +1,8 @@
 package cn.wjqixige.ch03.put;
 
-import cn.wjqixige.utils.MyUtils;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.util.Bytes;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,13 +17,16 @@ public class PutListExample {
 
         ArrayList<Put> puts = new ArrayList<>();
 
-        Put put1 = MyUtils.insertData("row1", "colfam1", "qual1", "val1");
+        Put put1 = new Put(Bytes.toBytes("row1"));
+        put1.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val1"));
         puts.add(put1);
 
-        Put put2 = MyUtils.insertData("row2", "colfam1", "qual1", "val2");
+        Put put2 = new Put(Bytes.toBytes("row2"));
+        put2.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val2"));
         puts.add(put2);
 
-        Put put3 = MyUtils.insertData("row2", "colfam1", "qual2", "val3");
+        Put put3 = new Put(Bytes.toBytes("row2"));
+        put3.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual2"), Bytes.toBytes("val3"));
         puts.add(put3);
 
         table.put(puts);

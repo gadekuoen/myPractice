@@ -1,7 +1,7 @@
 package cn.wjqixige.ch03.put;
 
-import cn.wjqixige.utils.MyUtils;
 import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.util.Bytes;
 
 import java.io.IOException;
 
@@ -12,7 +12,8 @@ import java.io.IOException;
 public class PutExample {
 
     public static void putOneData(Table table) throws IOException {
-        Put put = MyUtils.insertData("row1", "colfam1", "qual1", "val1");
+        Put put = new Put(Bytes.toBytes("row1"));
+        put.addColumn(Bytes.toBytes("colfam1"), Bytes.toBytes("qual1"), Bytes.toBytes("val1"));
         table.put(put);
     }
 }

@@ -1,6 +1,8 @@
 package cn.wjqixige;
 
-import cn.wjqixige.ch03.get.GetExample;
+import cn.wjqixige.ch03.batch.BatchCallbackExample;
+import cn.wjqixige.ch03.batch.BatchSameRowExample;
+import cn.wjqixige.ch03.scan.ScanExample;
 import cn.wjqixige.utils.HBaseHelper;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -24,19 +26,18 @@ public class Main {
         conf.addResource(new Path("hbase.core-site.dir", "/etc/hadoop/conf/core-site.xml"));
 
         HBaseHelper helper = HBaseHelper.getHelper(conf);
-//        helper.dropTable("wjTest2");
-        if (!helper.existsTable("wjTest2")){
-            helper.createTable("wjTest2","colfam1");
+        if (helper.existsTable("wjTest2")){
+            helper.dropTable("wjTest2");
         }
 
         Connection connection = ConnectionFactory.createConnection(conf);
         Table table = connection.getTable(TableName.valueOf("wjTest2"));
 
-        //代码测试区域 start
+        //---------------------------------码测试区域 start--------------------------------
 
+        ScanExample.scan(helper,connection,"wjTest2");
 
-
-        //代码测试区域 end
+        //---------------------------------代码测试区域 end--------------------------------
 
         //关闭连接
         helper.close();
