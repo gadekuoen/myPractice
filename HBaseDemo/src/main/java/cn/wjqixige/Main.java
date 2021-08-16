@@ -2,7 +2,10 @@ package cn.wjqixige;
 
 import cn.wjqixige.ch03.batch.BatchCallbackExample;
 import cn.wjqixige.ch03.batch.BatchSameRowExample;
+import cn.wjqixige.ch03.scan.ScanCacheBatchExample;
 import cn.wjqixige.ch03.scan.ScanExample;
+import cn.wjqixige.ch03.scan.ScanSlicingExample;
+import cn.wjqixige.ch03.scan.ScanTimeoutExample;
 import cn.wjqixige.utils.HBaseHelper;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -16,6 +19,7 @@ import org.apache.hadoop.hbase.client.Table;
 import java.io.IOException;
 
 public class Main {
+    private final static String tableName = "wjTest2";
 
     public static void main(String[] args) throws IOException {
         System.out.println("HBaseDemo程序测试入口！");
@@ -26,22 +30,22 @@ public class Main {
         conf.addResource(new Path("hbase.core-site.dir", "/etc/hadoop/conf/core-site.xml"));
 
         HBaseHelper helper = HBaseHelper.getHelper(conf);
-        if (helper.existsTable("wjTest2")){
-            helper.dropTable("wjTest2");
+        if (helper.existsTable(tableName)){
+            helper.dropTable(tableName);
         }
 
         Connection connection = ConnectionFactory.createConnection(conf);
-        Table table = connection.getTable(TableName.valueOf("wjTest2"));
+//        Table table = connection.getTable(TableName.valueOf("wjTest2"));
 
         //---------------------------------码测试区域 start--------------------------------
 
-        ScanExample.scan(helper,connection,"wjTest2");
+        ScanSlicingExample.scanSlicing(helper, connection, tableName);
 
         //---------------------------------代码测试区域 end--------------------------------
 
         //关闭连接
         helper.close();
-        table.close();
+//        table.close();
         connection.close();
     }
 }

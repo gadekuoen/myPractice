@@ -1,9 +1,7 @@
 package cn.wjqixige.ch03.get;
 
-import org.apache.hadoop.hbase.client.Get;
-import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 
 import java.io.IOException;
@@ -13,11 +11,13 @@ import java.util.List;
 /**
  * Time: 2021-08-13
  * Test Code:
- *      GetCheckExistenceExample.getCheckExistence(table);
+ *      GetCheckExistenceExample.getCheckExistence(connection,"tableName");
  */
 public class GetCheckExistenceExample {
 
-    public static void getCheckExistence(Table table) throws IOException {
+    public static void getCheckExistence(Connection connection, String tableName) throws IOException {
+
+        Table table = connection.getTable(TableName.valueOf(tableName));
 
         List<Put> puts = new ArrayList<Put>();
 
